@@ -25,7 +25,7 @@ export default class Anime extends React.Component {
     console.log(this.props.match.params.id);
     if (this.props.match.params.id) {
       this.setState({ isNew: false });
-      API.get(`/anime/${this.props.match.params.id}`)
+      API.get(`/animes/${this.props.match.params.id}`)
         .then(response => this.setState({ anime: response }))
         .catch(console.log);
     }
@@ -42,7 +42,7 @@ export default class Anime extends React.Component {
 
   sendAnime() {
     console.log(this.props.history);
-    (this.state.isNew ? API.put('/anime', { ...this.state.anime }) : API.post('/anime', { ...this.state.anime }))
+    (this.state.isNew ? API.put('/animes', { ...this.state.anime }) : API.post('/animes', { ...this.state.anime }))
       .then(() => this.props.history.push('/'))
       .catch(console.log);
   }
