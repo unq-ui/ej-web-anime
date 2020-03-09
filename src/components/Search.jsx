@@ -13,7 +13,7 @@ export default class Search extends Home {
   }
 
   searchAnimes(text) {
-    API.get(`/animes/${text}`)
+    API.get(`/animes/search/${text}`)
       .then(response => this.setState({ animes: response.data }))
       .catch(console.log);
   }
